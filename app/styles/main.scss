@@ -1,0 +1,240 @@
+$icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/bootstrap/";
+// bower:scss
+@import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
+// endbower
+
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+body {
+  padding: 0;
+}
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+.header,
+.marketing,
+.footer {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Custom page header */
+.header {
+  border-bottom: 1px solid #e5e5e5;
+  margin-bottom: 10px;
+
+  /* Make the masthead heading the same height as the navigation */
+  h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 40px;
+    padding-bottom: 19px;
+  }
+}
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  text-align: center;
+  border-bottom: 1px solid #e5e5e5;
+
+  .btn {
+    font-size: 21px;
+    padding: 14px 24px;
+  }
+}
+
+/* Supporting marketing content */
+.marketing {
+  margin: 40px 0;
+
+  p + h4 {
+    margin-top: 28px;
+  }
+}
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+
+  /* Remove the padding we set earlier */
+  .header,
+  .marketing,
+  .footer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+  /* Space out the masthead */
+  .header {
+    margin-bottom: 30px;
+  }
+  /* Remove the bottom border on the jumbotron for visual effect */
+  .jumbotron {
+    border-bottom: 0;
+  }
+}
+
+/* http://hslpicker.com/#3357a3 */
+$swg-skill-box-bg-color: #7492d2;
+$swg-skill-box-bg-color-selected: #33a371;
+$swg-skill-box-border-color: lighten($swg-skill-box-bg-color, 20%) !default;
+$swg-skill-box-border-radius: 3px;
+$swg-skill-box-border-width: 1px;
+$swg-skill-box-font-color: #fff;
+
+@mixin border-width($px) {
+
+  border-top-width: $px;
+  border-bottom-width: $px;
+  border-left-width: $px;
+  border-right-width: $px;
+}
+
+
+@mixin swg-skill-box() {
+
+  background-color: $swg-skill-box-bg-color;
+  border-style: solid;
+  border-radius:$swg-skill-box-border-radius;
+  border-color: $swg-skill-box-border-color;
+  @include border-width($swg-skill-box-border-width);
+  color: $swg-skill-box-font-color;
+  text-align: center;
+  &:hover {
+    background-color:lighten($swg-skill-box-bg-color, 30%);
+    color: black;
+    cursor: pointer;
+  }
+  &.selected {
+    background-color: $swg-skill-box-bg-color-selected;
+  }
+  &.selected:hover {
+    background-color: lighten($swg-skill-box-bg-color-selected, 30%);
+    cursor: pointer;
+  }
+  .name {
+    font-size: 100%;
+    margin-bottom: 0px;
+  }
+  .description {
+    font-size: 75%;
+  }
+}
+
+/* Master and novice boxes are a single row with a single skill
+*/
+
+.swg-single-skill-row {
+  @include make-row();
+}
+.swg-single-skill-row-skill {
+  @include make-md-column(4);
+  @include make-md-column-offset(4);
+  @include make-sm-column(4);
+  @include make-sm-column-offset(4);
+  @include make-xs-column(4);
+  @include make-xs-column-offset(4);
+  @include swg-skill-box();
+}
+
+/*
+ * Pyramid Skills
+
+#4              [MASTER]
+#3           [.....][.....]
+#2      [......][......][......]
+#1[.......][......][.......][.......]
+#0              [NOVICE]
+
+
+ */
+
+@mixin swg-pyramid-base($width: 1, $offset: 0) {
+  @include swg-skill-box();
+  @include make-md-column($width);
+  @include make-md-column-offset($offset);
+  @include make-sm-column($width);
+  @include make-sm-column-offset($offset);
+  @include make-xs-column($width);
+  @include make-xs-column-offset($width);
+}
+
+@mixin swg-pyramid-row3($offset: 0) {
+  @include swg-pyramid-base(3, $offset);
+}
+.swg-pyramid-row3 {
+  @include make-row();
+}
+.swg-pyramid-row3-skill1 {
+  @include swg-pyramid-row3(3);
+}
+.swg-pyramid-row3-skill2 {
+  @include swg-pyramid-row3(0);
+}
+
+@mixin swg-pyramid-row2($offset: 0) {
+  @include swg-pyramid-base(3.5, $offset);
+}
+.swg-pyramid-row2 {
+  @include make-row();
+}
+.swg-pyramid-row2-skill1 {
+  @include swg-pyramid-row2(0.75);
+}
+.swg-pyramid-row2-skill2,
+.swg-pyramid-row2-skill3 {
+  @include swg-pyramid-row2(0);
+}
+
+@mixin swg-pyramid-row1() {
+  @include swg-pyramid-base(3, 0);
+}
+.swg-pyramid-row1 {
+  @include make-row();
+}
+.swg-pyramid-row1-skill1,
+.swg-pyramid-row1-skill2,
+.swg-pyramid-row1-skill3,
+.swg-pyramid-row1-skill4,
+{
+  @include swg-pyramid-row1();
+}
+
+/*
+ * 4 by 4 template
+ */
+
+@mixin swg-4by4-base($width: 3, $offset: 0) {
+  @include swg-skill-box();
+  @include make-md-column($width);
+  @include make-md-column-offset($offset);
+  @include make-sm-column($width);
+  //@include make-sm-column-offset(0);
+  @include make-xs-column($width);
+  //@include make-xs-column-offset(0);
+  min-height: 40px;
+}
+
+.swg-4by4-row1,.swg-4by4-row2,.swg-4by4-row3,.swg-4by4-row4 {
+  @include make-row();
+}
+.swg-4by4-row1-skill1,.swg-4by4-row1-skill2,.swg-4by4-row1-skill3,.swg-4by4-row1-skill4,.swg-4by4-row2-skill1,.swg-4by4-row2-skill2,.swg-4by4-row2-skill3,.swg-4by4-row2-skill4,.swg-4by4-row3-skill1,.swg-4by4-row3-skill2,.swg-4by4-row3-skill3,.swg-4by4-row3-skill4,.swg-4by4-row4-skill1,.swg-4by4-row4-skill2,.swg-4by4-row4-skill3,.swg-4by4-row4-skill4 {
+  @include swg-4by4-base();
+}
+
