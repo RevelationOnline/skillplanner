@@ -1,0 +1,31 @@
+<div class="row"> <h4>Stars Wars Galaxies Online Skillplanner</h4> <p> I made this tool to help the community to be able to move away from ancient windows programs and more into a modern future. The website does not keep track of your templates. Besides the intial loading there is no further communication required. Once you selected a specific template you can just share the URL in the address bar so your friends can have a look. </p> </div> <!--div class="row">
+  <h4>Professions</h4>
+  <ul>
+    <li ng-repeat="(name, data) in character.skillTree" ng-click="selectProfession(data)">
+      {{name}}
+    </li>
+  </ul>
+</div--> <p class="row"> <div class="btn-group" dropdown> <button type="button" class="btn btn-primary dropdown-toggle" dropdown-toggle> Select Profession <span class="caret"></span> </button> <ul class="dropdown-menu" role="menu"> <li ng-repeat="(name, data) in character.skillTree"> <a ng-click="selectProfession(data)"><skill-name skill="data"></skill-name></a> </li> </ul> </div> </p><p> <div ng-repeat="(name, data) in professions" class="btn-group"> <button type="button" class="btn" ng-class="{true:'btn-info', false:'btn-default'}[data.master.selected]" ng-click="selectProfession(data)"> <skill-name skill="data"></skill-name> </button> <button type="button" class="btn btn-danger" ng-click="removeProfession(data)"> <span class="glyphicon glyphicon-remove"></span> </button> </div> </p> <div ng-if="profession === null"> Loading... please wait </div> <div ng-if="profession && character"> <h3><skill-name skill="profession"></skill-name></h3> <p>Skillpoints: <progressbar max="250" value="character.skillPoints" type="success">{{character.skillPoints}}/250</progressbar> </p> <button ng-click="reset()" class="btn btn-danger">Reset</button> <swg-four-by-four-skilltree skilltree="profession" select-skill="selectSkill(skill)"></swg-four-by-four-skilltree> <h4>Skill Mods</h4> <mod-summary-table skills="character.selectedSkills"></mod-summary-table> <h4>Skills</h4> <skill-summary skills="character.selectedSkills"></skill-summary> </div>  <!--div class="row">
+  <h3>Pyramid Template</h3>
+
+  <div class="container">
+    <swg-single-skill-row>Master</swg-single-skill-row>
+    <div class="swg-pyramid-row3">
+      <div class="swg-pyramid-row3-skill1">1</div>
+      <div class="swg-pyramid-row3-skill2">2</div>
+    </div>
+    <div class="swg-pyramid-row2">
+      <div class="swg-pyramid-row2-skill1">1</div>
+      <div class="swg-pyramid-row2-skill2">2</div>
+      <div class="swg-pyramid-row2-skill3">3</div>
+    </div>
+    <div class="swg-pyramid-row1">
+      <div class="swg-pyramid-row1-skill1">1</div>
+      <div class="swg-pyramid-row1-skill2">2</div>
+      <div class="swg-pyramid-row1-skill3">3</div>
+      <div class="swg-pyramid-row1-skill4">4</div>
+    </div>
+    <swg-single-skill-row>Novice</swg-single-skill-row>
+  </div>
+
+</div-->
