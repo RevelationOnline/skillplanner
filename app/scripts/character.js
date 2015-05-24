@@ -210,7 +210,6 @@ angular.module('skillplannerApp').factory('Character', ['SkillData', '$log', fun
 
   /**
    * Serialize the characters skills
-   * @return {String} serialized list of skills selected
    */
   CharacterModel.prototype.serializeSkills = function serializeSkills(){
     var professions = {};
@@ -238,8 +237,8 @@ angular.module('skillplannerApp').factory('Character', ['SkillData', '$log', fun
             }
           }, this);
         }, this);
-        var selection =  s.join("");
-        if (selection == '0000') {
+        var selection =  s.join('');
+        if (selection === '0000') {
           selection='novice';
         }
         selectedTiers[name] = selection;
@@ -266,17 +265,18 @@ angular.module('skillplannerApp').factory('Character', ['SkillData', '$log', fun
 
         if (profession && !professions[profession.name]) {
           var sel = tokens[1];
-          if (sel == 'master') {
+          if (sel === 'master') {
             professions[profession.name] = [profession.master];
-          } else if (sel == "novice") {
+          } else if (sel === 'novice') {
             professions[profession.name] = [profession.novice];
           } else {
             var tiers = sel.split('');
             professions[profession.name] = [];
             angular.forEach(profession.trees, function(tree, index) {
               var i = tiers[index], n = i -1;
-              if (i == 0)
+              if (i === 0) {
                 return;
+              }
 
               if (n >= 0 && n <= (tree.length - 1)) {
                 professions[profession.name].push(tree[n]);

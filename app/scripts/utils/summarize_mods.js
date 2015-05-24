@@ -1,3 +1,4 @@
+'use strict';
 angular.module('skillplannerApp').factory('SummarizeMods', function(){
   /**
    * Summarize the mods of the given skills

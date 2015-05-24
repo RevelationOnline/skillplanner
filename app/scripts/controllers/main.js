@@ -9,6 +9,7 @@
  */
 angular.module('skillplannerApp')
   .controller('MainCtrl', function ($scope, $log, Character, $location) {
+    var default_profession = 'combat_marksman';
     $scope.profession = null;
     $scope.professions = {};
     $scope.character = null;
@@ -26,7 +27,7 @@ angular.module('skillplannerApp')
     $scope.reset = function reset(){
       var character = new Character();
       $scope.character = character;
-      $scope.profession = character.skillTree['combat_marksman'];
+      $scope.profession = character.skillTree[default_profession];
       updateProfessions();
     };
 
@@ -53,7 +54,7 @@ angular.module('skillplannerApp')
         return Object.keys($scope.character.selectedSkills).length;
       }
       return -1;
-    }, function(val){
+    }, function(){
       updateProfessions();
       $location.hash($scope.character.serializeSkills());
       //$log.debug('current skillset:' +);

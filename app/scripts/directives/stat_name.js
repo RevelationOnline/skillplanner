@@ -3,7 +3,7 @@ angular.module('skillplannerApp').
   run(function($http, $log){
     $log.debug('test');
   })
-  .directive('statName', function(StatNameLookup, $log){
+  .directive('statName', function(StatNameLookup){
   return {
     restrict: 'E',
     transclude: true,
