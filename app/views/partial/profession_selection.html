@@ -9,7 +9,7 @@
           <b><skill-name skill="{'name':name}"></skill-name></b>
           <ul class="list-unstyled">
             <li ng-repeat="(professionName, data) in skills">
-              <a ng-click="onClick({data:data})"><skill-name skill="data"></skill-name></a>
+              <a href ng-click="onClick({data:data})"><skill-name skill="data"></skill-name></a>
             </li>
           </ul>
         </div>
