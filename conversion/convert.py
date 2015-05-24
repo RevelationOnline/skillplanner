@@ -212,6 +212,11 @@ class GraphNode(object):
 
         return s
 
+    def getRootParent(self):
+        if self._parent.content == 'root':
+            return self
+        return self._parent.getRootParent()
+
     def __str__(self):
         return self.format(level=0)
 
@@ -321,10 +326,13 @@ class ProfessionGraph(object):
                 tree = list(tree_base.walk(converter=lambda x: x.content))
                 trees.append(tree)
 
+            category = novice_node.getRootParent().content.name
+            print (category)
             profession['trees'] = trees
             profession['novice'] = novice_node.content
             profession['master'] = master_node.content
             profession['graph_type'] = novice_node.content.graph_type
+            profession['category'] = category
             professions[profession['name']] = profession
 
         return professions
