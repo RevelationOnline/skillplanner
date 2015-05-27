@@ -1,6 +1,8 @@
 # skillplanner
+[![devDependency Status](https://david-dm.org/RevelationOnline/skillplanner/dev-status.svg?branch=master)](https://david-dm.org/RevelationOnline/skillplanner/#info=devDependencies)
 
 This is a web-based (prototype?) implementation of an Star Wars Galaxies skillplanner. You can access a demo at http://revelationonline.github.io/skillplanner 
+
 
 ## Build & development
 
