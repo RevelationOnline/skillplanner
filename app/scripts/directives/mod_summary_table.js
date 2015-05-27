@@ -1,5 +1,5 @@
 'use strict';
-angular.module('skillplannerApp').directive('modSummaryTable', function(SummarizeMods){
+angular.module('skillplannerApp').directive('modSummaryTable', function(SummarizeMods, StatNameLookup){
   /**
    * Display a (sortable) table (using ui-grid) showing the mods of the given skills.
    */
@@ -15,8 +15,7 @@ angular.module('skillplannerApp').directive('modSummaryTable', function(Summariz
         columnDefs: [
           {
             field:'name',
-            name:'Name',
-            cellTemplate: '<div class="ui-grid-cell-contents" title="TOOLTIP"><stat-name stat="COL_FIELD"></stat-name></div>'
+            name:'Name'
           },
           {field:'value', name:'Value', type: 'number'}
         ],
@@ -26,7 +25,12 @@ angular.module('skillplannerApp').directive('modSummaryTable', function(Summariz
       $scope.$watch(function(){
         return Object.keys($scope.skills).length;
       }, function() {
-        $scope.gridData.data = SummarizeMods($scope.skills, 'list');
+        var summary = SummarizeMods($scope.skills, 'list');
+        angular.forEach(summary, function(item) {
+          item['name'] = StatNameLookup(item['name']);
+        });
+
+        $scope.gridData.data = summary;
       });
     }
   };
