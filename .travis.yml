@@ -2,6 +2,7 @@ language: node_js
 cache:
   directories:
     - node_modules
+    - bower_components
 before_install:
   - npm install -g grunt-cli
   - gem install sass
