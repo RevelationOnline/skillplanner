@@ -112,8 +112,14 @@ class Skill(object):
 
     @property
     def graph_type(self):
-        if self.GRAPH_TYPE == '4':
-            return '4by4'
+        if self.GRAPH_TYPE == '1':
+            return 'oneByFour'
+        elif self.GRAPH_TYPE == '2':
+            return 'twoByFour'
+        elif self.GRAPH_TYPE == '3':
+            return 'threeByFour'
+        elif self.GRAPH_TYPE == '4':
+            return 'fourByFour'
         elif self.GRAPH_TYPE == '5':
             return 'pyramid'
         else:
@@ -365,7 +371,7 @@ class SkillEncoder(json.JSONEncoder):
                 'skills_required': [o.name for o in obj.skills_required],
                 'mods': obj.skill_mods,
                 'xp_type': obj.XP_TYPE,
-                'xp_cost': obj.XP_COST,
+                'xp_cost': int(obj.XP_COST),
                 'credit_cost': obj.MONEY_REQUIRED,
                 'skillpoint_cost': int(obj.POINTS_REQUIRED),
             }

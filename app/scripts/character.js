@@ -110,7 +110,7 @@ angular.module('skillplannerApp').factory('Character', ['SkillData', '$log', fun
    */
   CharacterModel.prototype.canLearn = function canLean(skill) {
     var self = this, skillPointsRequired = self.getSkillCosts(skill);
-    $log.debug('skillPoints required:', skillPointsRequired);
+    //$log.debug('skillPoints required:', skillPointsRequired);
     if (skillPointsRequired > self.skillPoints) {
       return false;
     } else {
@@ -175,7 +175,7 @@ angular.module('skillplannerApp').factory('Character', ['SkillData', '$log', fun
 
       this.addSkill(skill);
 
-      $log.debug('Learned ', skill);
+      //$log.debug('Learned ', skill);
     } else {
       $log.error('Can\'t learn ', skill);
     }
@@ -202,7 +202,7 @@ angular.module('skillplannerApp').factory('Character', ['SkillData', '$log', fun
         this.unlearnSkill(child);
       }, this);
       this.removeSkill(skill);
-      $log.debug('unlearkning', skill);
+      //$log.debug('unlearkning', skill);
 
     }
   };
@@ -287,7 +287,7 @@ angular.module('skillplannerApp').factory('Character', ['SkillData', '$log', fun
       }
     }, this);
     angular.forEach(professions, function(skills) {
-      $log.debug('Learning ', skills);
+      //$log.debug('Learning ', skills);
       angular.forEach(skills, this.learnSkill, this);
     }, this);
   };

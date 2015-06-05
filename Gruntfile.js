@@ -151,7 +151,9 @@ module.exports = function (grunt) {
           '<%= yeoman.app %>/skills.json',
 		      '<%= yeoman.app %>/skill_names.json',
 		      '<%= yeoman.app %>/skill_descriptions.json',
-		      '<%= yeoman.app %>/stat_names.json'
+		      '<%= yeoman.app %>/stat_names.json',
+          '<%= yeoman.app %>/exp_names.json',
+          '<%= yeoman.app %>/exp_descriptions.json'
         ],
 		    dest: '<%= yeoman.dist %>/data.js'
       },
@@ -161,10 +163,12 @@ module.exports = function (grunt) {
         },
 
         src: [
-                '<%= yeoman.app %>/skills.json',
-                '<%= yeoman.app %>/skill_names.json',
-                '<%= yeoman.app %>/skill_descriptions.json',
-                '<%= yeoman.app %>/stat_names.json'
+          '<%= yeoman.app %>/skills.json',
+          '<%= yeoman.app %>/skill_names.json',
+          '<%= yeoman.app %>/skill_descriptions.json',
+          '<%= yeoman.app %>/stat_names.json',
+          '<%= yeoman.app %>/exp_names.json',
+          '<%= yeoman.app %>/exp_descriptions.json'
         ],
 
         dest: '<%= yeoman.app %>/data.js'

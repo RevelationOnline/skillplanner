@@ -1,7 +1,7 @@
 'use strict';
-angular.module('skillplannerApp').factory('SummarizeMods', function(){
+angular.module('skillplannerApp').factory('SummarizeExperience', function(){
   /**
-   * Summarize the mods of the given skills
+   * Summarize the experience types of the given skills
    * You can use the optional format argument to switch into list mode which will give you a list of objects
    * rather than a simple object.
    * @param skills {Array} Array of selected skills
@@ -10,19 +10,16 @@ angular.module('skillplannerApp').factory('SummarizeMods', function(){
    */
   function summarize(skills, format) {
     var list = (format === 'list' ? true : false);
-    var mods = {};
+    var exps = {};
     angular.forEach(skills, function (skill) {
-      angular.forEach(skill.mods, function (val, key) {
-        if (key.indexOf('private_') === -1) {
-          var o = mods[key] || 0;
-          o += val;
-          mods[key] = o;
+        var e = skill.xp_type;
+        if (e !== "") {
+          exps[e] = (exps[e] || 0) + skill.xp_cost;
         }
-      });
     });
     if (list) {
       var l = [];
-      angular.forEach(mods, function (val, key) {
+      angular.forEach(exps, function (val, key) {
         l.push({
           'name': key,
           'value': val
@@ -30,7 +27,7 @@ angular.module('skillplannerApp').factory('SummarizeMods', function(){
       });
       return l;
     } else {
-      return mods;
+      return exps;
     }
   }
   return summarize;

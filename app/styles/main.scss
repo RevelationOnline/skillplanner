@@ -71,6 +71,8 @@ body {
   }
 }
 
+
+
 /* Responsive: Portrait tablets and up */
 @media screen and (min-width: 768px) {
   .container {
@@ -91,6 +93,11 @@ body {
   /* Remove the bottom border on the jumbotron for visual effect */
   .jumbotron {
     border-bottom: 0;
+  }
+}
+@media screen and(min-width: 1200px) {
+  .container {
+    max-width: 1170px;
   }
 }
 
@@ -222,6 +229,10 @@ $swg-skill-box-font-color: #fff;
 
 /*
  * 4 by 4 template
+ * [...][...][...][...]
+ * [...][...][...][...]
+ * [...][...][...][...]
+ * [...][...][...][...]
  */
 
 @mixin swg-4by4-base($width: 3, $offset: 0) {
@@ -242,3 +253,90 @@ $swg-skill-box-font-color: #fff;
   @include swg-4by4-base();
 }
 
+/*
+ * 3 by 4 template
+ *
+ *   [...][...][...]
+ *   [...][...][...]
+ *   [...][...][...]
+ *   [...][...][...]
+ */
+
+@mixin swg-3by4-base($width: 3, $offset :0) {
+  @include swg-skill-box();
+  @include make-md-column($width);
+  @include make-md-column-offset($offset);
+  @include make-sm-column($width);
+  @include make-xs-column($width);
+}
+
+.swg-3by4-row1,
+.swg-3by4-row2,
+.swg-3by4-row3,
+.swg-3by4-row4 {
+  @include make-row();
+}
+
+
+.swg-by4-row1-skill2,
+.swg-3by4-row1-skill3,
+.swg-3by4-row1-skill4,
+.swg-by4-row2-skill2,
+.swg-3by4-row2-skill3,
+.swg-3by4-row2-skill4,
+.swg-by4-row2-skill2,
+.swg-3by4-row2-skill3,
+.swg-3by4-row2-skill4 {
+  @include swg-3by4-base(3, 0);
+}
+
+.swg-3by4-row1-skill1,
+.swg-3by4-row2-skill1,
+.swg-3by4-row3-skill1,
+.swg-3by4-row4-skill1 {
+  @include swg-3by4-base(3, 1);
+}
+
+/*
+ * 2 by 4 template
+ *
+ *     [...][...]
+ *     [...][...]
+ *     [...][...]
+ *     [...][...]
+ */
+
+@mixin swg-2by4-base($width: 3, $offset :0) {
+  @include swg-skill-box();
+  @include make-md-column($width);
+  @include make-md-column-offset($offset);
+  @include make-sm-column($width);
+  @include make-xs-column($width);
+}
+
+.swg-2by4-row1,
+.swg-2by4-row2,
+.swg-2by4-row3,
+.swg-2by4-row4 {
+  @include make-row();
+}
+
+
+.swg-by4-row1-skill2,
+.swg-2by4-row1-skill3,
+.swg-2by4-row1-skill4,
+.swg-by4-row2-skill2,
+.swg-2by4-row2-skill3,
+.swg-2by4-row2-skill4,
+.swg-by4-row2-skill2,
+.swg-2by4-row2-skill3,
+.swg-2by4-row2-skill4 {
+  @include swg-2by4-base(3, 0);
+}
+
+.swg-2by4-row1-skill1,
+.swg-2by4-row2-skill1,
+.swg-2by4-row3-skill1,
+.swg-2by4-row4-skill1 {
+  @include swg-2by4-base(3, 2);
+}

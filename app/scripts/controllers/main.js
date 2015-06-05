@@ -66,5 +66,12 @@ angular.module('skillplannerApp')
     var hash = $location.hash();
     if (hash !== '') {
       $scope.character.deserialize(hash);
+
+      // initialize with the "last" box learned, should be better then the default selection
+      // when the user already made a selection
+      var s = $scope.character.selectedSkills, keys = Object.keys(s);
+      if (keys.length > 0) {
+        $scope.selectProfession(s[keys[keys.length-1]].profession);
+      }
     }
   });

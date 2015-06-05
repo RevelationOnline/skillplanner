@@ -2,7 +2,7 @@
 <html class="no-js">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Revelation Online - Skillplanner</title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -22,7 +22,13 @@
 
     <!-- Add your site or application content here -->
     <div class="container">
-    <div ng-view=""></div>
+      <div ng-view="">
+        <div class="progress">
+          <div class="progress-bar progress-bar-striped active" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+            <span class="">Loading.. please be patient...</span>
+          </div>
+        </div>
+      </div>
     </div>
 
 
@@ -32,7 +38,6 @@
         If you've any ideas for features please mail me at andi (-at-) revelationonline.net. While I wont promise to implement it I'll keep it in mind. :-)
       </p>
       <ul>
-        <li>Implemenet the remaining skill tree templates</li>
         <li>Provide feedback when "traninig" of a skill fails (E.g. not enough skillpoints). <b>Hint: The debug console shows those already.</b></li>
         <li>Add certifications and abilities (with nice icons?)</li>
         <li>Allow people to save templates in the localStorage
@@ -117,18 +122,28 @@
         <script src="scripts/skill_data.js"></script>
         <script src="scripts/skill_name_lookup.js"></script>
         <script src="scripts/skill_description_lookup.js"></script>
+        <script src="scripts/exp_description_lookup.js"></script>
+        <script src="scripts/exp_name_lookup.js"></script>
         <script src="scripts/stat_name_lookup.js"></script>
         <script src="scripts/character.js"></script>
         <script src="scripts/directives/skill.js"></script>
-        <script src="scripts/directives/4by4_skilltree.js"></script>
+        <script src="scripts/directives/fourByFour_skilltree.js"></script>
+        <script src="scripts/directives/pyramid_skilltree.js"></script>
+        <script src="scripts/directives/oneByFour_skilltree.js"></script>
+        <script src="scripts/directives/twoByFour_skilltree.js"></script>
+        <script src="scripts/directives/threeByFour_skilltree.js"></script>
         <script src="scripts/directives/mod_summary.js"></script>
+        <script src="scripts/directives/experience_summary.js"></script>
         <script src="scripts/directives/skill_summary.js"></script>
         <script src="scripts/directives/skill_name.js"></script>
         <script src="scripts/directives/skill_description.js"></script>
         <script src="scripts/directives/stat_name.js"></script>
+        <script src="scripts/directives/exp_name.js"></script>
+        <script src="scripts/directives/exp_description.js"></script>
         <script src="scripts/directives/mod_summary_table.js"></script>
         <script src="scripts/directives/profession_selection.js"></script>
         <script src="scripts/utils/summarize_mods.js"></script>
+        <script src="scripts/utils/summarize_experience.js"></script>
         <!-- endbuild -->
 </body>
 </html>

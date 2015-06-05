@@ -27,7 +27,7 @@ angular.module('skillplannerApp').directive('modSummaryTable', function(Summariz
       }, function() {
         var summary = SummarizeMods($scope.skills, 'list');
         angular.forEach(summary, function(item) {
-          item['name'] = StatNameLookup(item['name']);
+          item.name = StatNameLookup(item.name);
         });
 
         $scope.gridData.data = summary;

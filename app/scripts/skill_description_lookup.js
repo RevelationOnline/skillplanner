@@ -5,5 +5,3 @@ angular.module('skillplannerApp').factory('SkillDescriptionLookup', function(){
     return data[name];
   };
 });
-
-
