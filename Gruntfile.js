@@ -23,6 +23,7 @@ module.exports = function (grunt) {
 
   grunt.loadNpmTasks('grunt-json');
   grunt.loadNpmTasks('grunt-angular-templates');
+  grunt.loadNpmTasks('grunt-postcss');
   // Define the configuration for all the tasks
   grunt.initConfig({
 
@@ -48,7 +49,7 @@ module.exports = function (grunt) {
       },
       compass: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.{scss,sass}'],
-        tasks: ['compass:server', 'autoprefixer']
+        tasks: ['compass:server', 'postcss']
       },
       gruntfile: {
         files: ['Gruntfile.js']
@@ -209,32 +210,33 @@ module.exports = function (grunt) {
       server: '.tmp'
     },
 
-    // Add vendor prefixed styles
-    autoprefixer: {
-      options: {
-        browsers: ['last 1 version']
-      },
-      server: {
-        options: {
-          map: true,
-        },
-        files: [{
-          expand: true,
-          cwd: '.tmp/styles/',
-          src: '{,*/}*.css',
-          dest: '.tmp/styles/'
-        }]
-      },
-      dist: {
-        files: [{
-          expand: true,
-          cwd: '.tmp/styles/',
-          src: '{,*/}*.css',
-          dest: '.tmp/styles/'
-        }]
-      }
+    postcss: {
+    	options: {
+		map: true,
+		processors: [
+			require('autoprefixer-core')({browsers: 'last 1 version'}),
+			require('csswring')
+		]
+	},
+	server: {
+	  files: [{
+		  expand: true,
+		  cwd: '.tmp/styles/',
+		  src: '{,*/}*.css',
+		  dest: '.tmp/styles/'
+	  }]
+	
+	},
+	dist: {
+	  files: [{
+		  expand: true,
+		  cwd: '.tmp/styles/',
+		  src: '{,*/}*.css',
+		  dest: '.tmp/styles/'
+	  }]
+	
+	}
     },
-
     // Automatically inject Bower components into the app
     wiredep: {
       app: {
@@ -503,7 +505,7 @@ module.exports = function (grunt) {
       'wiredep',
       'json',
       'concurrent:server',
-      'autoprefixer:server',
+      'postcss:server',
       'connect:livereload',
       'watch'
     ]);
@@ -518,7 +520,7 @@ module.exports = function (grunt) {
     'clean:server',
     'wiredep',
     'concurrent:test',
-    'autoprefixer',
+    'postcss',
     'connect:test',
     'karma'
   ]);
@@ -530,7 +532,7 @@ module.exports = function (grunt) {
     'useminPrepare',
     'ngtemplates',
     'concurrent:dist',
-    'autoprefixer',
+    'postcss',
     'concat',
     'ngAnnotate',
     'copy:dist',
