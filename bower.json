@@ -5,7 +5,7 @@
     "angular": "^1.4.0",
     "bootstrap-sass-official": "~3.3.0",
     "angular-animate": "~1.4.0",
-    "angular-cookies": "~1.4.0",
+    "angular-cookies": "~1.4.1",
     "angular-resource": "~1.4.0",
     "angular-route": "~1.4.0",
     "angular-sanitize": "~1.4.0",
@@ -19,6 +19,6 @@
   "appPath": "app",
   "moduleName": "skillplannerApp",
   "resolutions": {
-    "angular": "1.4.0"
+    "angular": "^1.4.0"
   }
 }
