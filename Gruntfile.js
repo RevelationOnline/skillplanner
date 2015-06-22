@@ -120,10 +120,11 @@ module.exports = function (grunt) {
       dist: {
         cwd: '<%= yeoman.app %>',
         src: ['views/*.html','views/**/*.html'],
-        dest: '.tmp/concat/scripts/templates.js',
+        dest: '.tmp/concat/templates.js',
         options: {
           module: 'skillplannerApp',
-          concat: 'generated',
+	  usemin: 'scripts/scripts.js',
+ //         concat: 'generated',
           htmlmin: {
             collapseBooleanAttributes:      true,
             collapseWhitespace:             true,
