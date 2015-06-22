@@ -454,11 +454,11 @@ module.exports = function (grunt) {
         {
           // FIXME: can we let bower do this in an automated fashion?
           expand: true,
-          cwd: '.',
-          src: ['bower_components/angular-ui-grid/ui-grid.woff',
-                'bower_components/angular-ui-grid/ui-grid.ttf',
-                'bower_components/angular-ui-grid/ui-grid.eot',
-                'bower_components/angular-ui-grid/ui-grid.svg'],
+          cwd: 'bower_components/angular-ui-grid/',
+          src: ['ui-grid.woff',
+                'ui-grid.ttf',
+                'ui-grid.eot',
+                'ui-grid.svg'],
           dest: '<%= yeoman.dist %>/styles'
         }]
       },
