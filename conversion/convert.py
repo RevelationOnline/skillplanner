@@ -28,12 +28,13 @@ class Skill(object):
     def _convert_dict(inp):
         l = Skill._convert_list(inp)
         tuples = [ x.split('=') for x in l]
-        if len(tuples) > 0:
-            tuples = [
-                (key, int(val)) for (key, val) in tuples
-            ]
         try:
-            return dict(tuples)
+            if len(tuples) > 0:
+                tuples = [
+                    (key, int(val)) for (key, val) in tuples
+                ]
+
+                return dict(tuples)
         except ValueError:
             print(tuples)
             raise
