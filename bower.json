@@ -2,14 +2,14 @@
   "name": "skillplanner",
   "version": "0.0.0",
   "dependencies": {
-    "angular": "^1.4.0",
+    "angular": "^1.4.2",
     "bootstrap-sass-official": "~3.3.0",
-    "angular-animate": "~1.4.0",
-    "angular-cookies": "~1.4.1",
-    "angular-resource": "~1.4.0",
-    "angular-route": "~1.4.0",
-    "angular-sanitize": "~1.4.0",
-    "angular-touch": "~1.4.0",
+    "angular-animate": "~1.4.2",
+    "angular-cookies": "~1.4.2",
+    "angular-resource": "~1.4.2",
+    "angular-route": "~1.4.2",
+    "angular-sanitize": "~1.4.2",
+    "angular-touch": "~1.4.2",
     "angular-bootstrap": "~0.13.0",
     "angular-ui-grid": "git://github.com/angular-ui/bower-ui-grid.git#master"
   },
@@ -19,6 +19,6 @@
   "appPath": "app",
   "moduleName": "skillplannerApp",
   "resolutions": {
-    "angular": "^1.4.0"
+    "angular": "^1.4.2"
   }
 }
